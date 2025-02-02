@@ -10,7 +10,7 @@
 - Member 2: [Aarushi Dalmia] - [MEC]
 
 ### Hosted Project Link
-[]
+[https://aagamaar.github.io/SORT-SMART/]
 ### Project Description
 [Waste collection and reporting by sending pictures real time.]
 
