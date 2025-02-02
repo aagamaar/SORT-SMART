@@ -1,0 +1,1457 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="undefined">
+      <meta name="theme-color" content="#a4cfcb">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="undefined">
+
+       <title>SortSmart - Smart Waste Management & Collection Platform | Upload, Track, and Manage Waste</title>
+      <!-- SEO Description -->
+      <meta name="description" content="SortSmart connects citizens with NGOs and waste collection agencies through an innovative platform. Upload waste pictures, track collection status, and contribute to a cleaner environment with GPS-enabled waste management.">
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+
+
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+             colors: {
+                primary: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#8893bf',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="undefined">
+      <meta name="keywords" content="undefined">
+      <meta name="robots" content="undefined">
+      <meta name="google-site-verification" content="undefined">
+      <meta name="baidu-verification" content="undefined">
+      <meta name="yandex-verification" content="undefined">
+      <meta name="bing-verification" content="undefined">
+      <meta property="og:title" content="undefined">
+      <meta property="og:description" content="undefined">
+      <meta property="og:image" content="undefined">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="SortSmart waste management platform">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="undefined">
+      <meta name="twitter:description" content="undefined">
+      <meta name="twitter:image" content="undefined">
+
+      <!-- Base Styles -->
+      <style>
+      * {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Webkit browsers like Chrome, Safari, newer Edge */
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 0px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #aa9ebc;
+          border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #87798b;
+          border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #b8aeae;
+        }
+
+        /* Remove tap highlight on mobile */
+        * {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Improve text rendering */
+        body {
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Focus outline styles */
+        :focus-visible {
+          outline: 2px solid currentColor;
+          outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+          .no-print {
+            display: none !important;
+          }
+
+          a[href]:after {
+            content: " (" attr(href) ")";
+          }
+        }
+      </style>
+
+      <!-- Enhanced Image Handler -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                  const tempImage = new Image();
+                  tempImage.onload = () => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('opacity-0');
+                    img.classList.add('opacity-100');
+                  };
+                  tempImage.src = img.dataset.src;
+                  img.removeAttribute('data-src');
+                  observer.unobserve(img);
+                }
+              }
+            });
+          }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+          });
+
+          const loadImage = (img) => {
+            if ('loading' in HTMLImageElement.prototype) {
+              img.loading = 'lazy';
+            }
+
+            img.classList.add('transition-opacity', 'duration-300', 'opacity-0');
+
+            img.onerror = () => {
+              const width = img.getAttribute('width') || img.clientWidth || 300;
+              const height = img.getAttribute('height') || img.clientHeight || 200;
+              img.src = `https://placehold.co/${width}x${height}/DEDEDE/555555?text=Image+Unavailable`;
+              img.alt = 'Image unavailable';
+              img.classList.remove('opacity-0');
+              img.classList.add('opacity-100', 'error-image');
+            };
+
+            if (img.dataset.src) {
+              imageObserver.observe(img);
+            } else {
+              img.classList.remove('opacity-0');
+              img.classList.add('opacity-100');
+            }
+          };
+
+          document.querySelectorAll('img[data-src], img:not([data-src])').forEach(loadImage);
+
+          // Watch for dynamically added images
+          new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+              mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                  if (node.tagName === 'IMG') {
+                    loadImage(node);
+                  }
+                  node.querySelectorAll('img').forEach(loadImage);
+                }
+              });
+            });
+          }).observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+        });
+
+        // Performance monitoring
+        if ('performance' in window && 'PerformanceObserver' in window) {
+          // Create performance observer
+          const observer = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach((entry) => {
+              if (entry.entryType === 'largest-contentful-paint') {
+                // console.log(`LCP: ${entry.startTime}ms`);
+              }
+              if (entry.entryType === 'first-input') {
+                // console.log(`FID: ${entry.processingStart - entry.startTime}ms`);
+              }
+              if (entry.entryType === 'layout-shift') {
+                // console.log(`CLS: ${entry.value}`);
+              }
+            });
+          });
+
+          // Observe performance metrics
+          observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+          // Log basic performance metrics
+          window.addEventListener('load', () => {
+            const timing = performance.getEntriesByType('navigation')[0];
+            console.log({
+              'DNS Lookup': timing.domainLookupEnd - timing.domainLookupStart,
+              'TCP Connection': timing.connectEnd - timing.connectStart,
+              'DOM Content Loaded': timing.domContentLoadedEventEnd - timing.navigationStart,
+              'Page Load': timing.loadEventEnd - timing.navigationStart
+            });
+          });
+        }
+
+
+        ;
+      </script>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content"
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative ">
+        <!-- Content will be injected here -->
+      </main>
+
+
+
+   <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html><htmlCode>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SortSmart</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #ada7c7; }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="root" class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <nav class="hidden lg:flex flex-col w-64 bg-white border-r border-neutral-200/20" x-data="{ activeLink: 'dashboard' }">
+            <div class="p-4 border-b border-neutral-200/20">
+                <h1 class="text-2xl font-bold text-green-700">SortSmart</h1>
+            </div>
+
+            <div class="flex flex-col flex-1 overflow-y-auto">
+                <div class="flex-1 space-y-1 p-2">
+                    <a href="#dashboard" @click="activeLink = 'dashboard'" :class="{'active-link': activeLink === 'dashboard'}" class="flex items-center px-4 py-3 rounded-lg hover:bg-green-100 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        Dashboard
+                    </a>
+
+                    <a href="#upload" @click="activeLink = 'upload'" :class="{'active-link': activeLink === 'upload'}" class="flex items-center px-4 py-3 rounded-lg hover:bg-green-100 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                        </svg>
+                        Upload
+                    </a>
+
+                    <a href="#map" @click="activeLink = 'map'" :class="{'active-link': activeLink === 'map'}" class="flex items-center px-4 py-3 rounded-lg hover:bg-green-100 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                        Map
+                    </a>
+
+                    <a href="#requests" @click="activeLink = 'requests'" :class="{'active-link': activeLink === 'requests'}" class="flex items-center px-4 py-3 rounded-lg hover:bg-green-100 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                        Requests
+                    </a>
+                </div>
+
+                <div class="p-4 border-t border-neutral-200/20">
+                    <div class="flex items-center">
+                        <img src="https://avatar.iran.liara.run/public" alt="Profile" class="w-8 h-8 rounded-full">
+                        <div class="ml-3">
+                            <p class="text-sm font-medium">User Profile</p>
+                            <p class="text-xs text-gray-500">user@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div x-data="{ isOpen: false }" class="lg:hidden">
+            <button type="button" class="fixed top-4 right-4 z-50 p-2 rounded-lg bg-green-700 text-white" @click="isOpen = !isOpen" aria-controls="mobile-menu" :aria-expanded="isOpen">
+                <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg x-show="isOpen" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <div x-show="isOpen" x-cloak
+                @click.away="isOpen = false"
+                @resize.window="if (window.innerWidth > 1024) isOpen = false"
+                class="fixed inset-0 z-40 bg-neutral-800/80 backdrop-blur-lg"
+                x-transition:enter="transition ease-out duration-100 transform"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75 transform"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95">
+
+                <div class="fixed inset-y-0 left-0 w-64 bg-white">
+                    <div class="p-4 border-b border-neutral-200/20">
+                        <h1 class="text-2xl font-bold text-green-700">SortSmart</h1>
+                    </div>
+                    <!-- Mobile menu content - mirror of desktop navigation -->
+                    <div class="flex flex-col p-2">
+                        <!-- Same links as desktop navigation -->
+                        <a href="#dashboard" class="flex items-center px-4 py-3 rounded-lg hover:bg-green-100 transition-colors duration-200">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                            Dashboard
+                        </a>
+                        <!-- Repeat for other menu items -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="flex-1 overflow-y-auto">
+            <MountPoint>
+</htmlCode><htmlCode>
+<section id="dashboard" class="p-6">
+    <!-- Header -->
+    <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-800">Waste Collection Dashboard</h2>
+        <p class="text-gray-600">Monitor and manage waste collection activities</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="p-6 bg-white rounded-lg border border-neutral-200/30">
+            <div class="flex items-center">
+                <div class="p-3 bg-green-100 rounded-lg">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold">Total Requests</h3>
+                    <p class="text-2xl font-bold text-green-600">124</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 bg-white rounded-lg border border-neutral-200/30">
+            <div class="flex items-center">
+                <div class="p-3 bg-blue-100 rounded-lg">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold">Pending</h3>
+                    <p class="text-2xl font-bold text-blue-600">28</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 bg-white rounded-lg border border-neutral-200/30">
+            <div class="flex items-center">
+                <div class="p-3 bg-yellow-100 rounded-lg">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold">In Progress</h3>
+                    <p class="text-2xl font-bold text-yellow-600">45</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 bg-white rounded-lg border border-neutral-200/30">
+            <div class="flex items-center">
+                <div class="p-3 bg-purple-100 rounded-lg">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold">Completed</h3>
+                    <p class="text-2xl font-bold text-purple-600">51</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Recent Requests -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <h3 class="text-lg font-semibold mb-4">Recent Waste Collection Requests</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/100x100" alt="Waste Image" class="w-12 h-12 rounded-lg object-cover"/>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Plastic Waste Collection</h4>
+                            <p class="text-sm text-gray-500">123 Main Street</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/100x100" alt="Waste Image" class="w-12 h-12 rounded-lg object-cover"/>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Electronic Waste</h4>
+                            <p class="text-sm text-gray-500">456 Oak Avenue</p>
+                        </div>
+                    </div>
+                    <span class="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NGO Activity -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <h3 class="text-lg font-semibold mb-4">Active NGO Partners</h3>
+            <div class="space-y-4">
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <img src="https://avatar.iran.liara.run/public" alt="NGO Profile" class="w-12 h-12 rounded-full"/>
+                    <div class="ml-4">
+                        <h4 class="font-semibold">Green Earth Initiative</h4>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500">Currently Active</span>
+                            <div class="w-2 h-2 bg-green-500 rounded-full ml-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <img src="https://avatar.iran.liara.run/public" alt="NGO Profile" class="w-12 h-12 rounded-full"/>
+                    <div class="ml-4">
+                        <h4 class="font-semibold">Clean City Foundation</h4>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500">Last active: 2h ago</span>
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full ml-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="wasteUpload" class="p-6">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800">Upload Waste Collection Request</h2>
+            <p class="text-gray-600">Take or upload photos of waste and share the location for collection</p>
+        </div>
+
+        <!-- Upload Form -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <form class="space-y-6" x-data="{
+                images: [],
+                locationAccess: false,
+                latitude: '',
+                longitude: '',
+                requestLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(position => {
+                            this.latitude = position.coords.latitude;
+                            this.longitude = position.coords.longitude;
+                            this.locationAccess = true;
+                        });
+                    }
+                }
+            }">
+                <!-- Image Upload Area -->
+                <div class="border-2 border-dashed border-neutral-200/30 rounded-lg p-8 text-center">
+                    <input type="file" id="waste-images" multiple accept="image/*" class="hidden"
+                        @change="images = Array.from($event.target.files)">
+                    <label for="waste-images" class="cursor-pointer">
+                        <div class="space-y-4">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="text-gray-600">
+                                <span class="font-medium text-green-600 hover:text-green-500">
+                                    Click to upload
+                                </span>
+                                or drag and drop
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Preview Area -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4" x-show="images.length">
+                    <template x-for="(image, index) in images" :key="index">
+                        <div class="relative">
+                            <img :src="URL.createObjectURL(image)" class="h-32 w-full object-cover rounded-lg">
+                            <button type="button" @click="images.splice(index, 1)"
+                                class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Location Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Location</h3>
+                        <button type="button" @click="requestLocation"
+                            class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>Get Current Location</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div x-show="locationAccess" class="bg-gray-50 p-4 rounded-lg border border-neutral-200/30">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Latitude</label>
+                                <input type="text" x-model="latitude" readonly class="mt-1 block w-full px-3 py-2 bg-white border border-neutral-200/30 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Longitude</label>
+                                <input type="text" x-model="longitude" readonly class="mt-1 block w-full px-3 py-2 bg-white border border-neutral-200/30 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Waste Type</label>
+                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-neutral-200/30 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                                <option>Plastic</option>
+                                <option>Electronic</option>
+                                <option>Organic</option>
+                                <option>Metal</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Additional Notes</label>
+                            <textarea rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-neutral-200/30 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Any specific details about the waste..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        Submit Collection Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="mapView" class="p-6" x-data="{ selectedRequest: null }">
+    <!-- Header -->
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Collection Locations Map</h2>
+        <p class="text-gray-600">View and track waste collection requests</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Map Container -->
+        <div class="lg:col-span-2 bg-white rounded-lg border border-neutral-200/30 p-4">
+            <div class="relative h-[600px] bg-gray-100 rounded-lg">
+                <!-- Map placeholder - In real implementation, this would be replaced by an actual map integration -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                        <p class="mt-2 text-gray-500">Map loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Controls -->
+            <div class="flex items-center justify-between mt-4">
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-white border border-neutral-200/30 rounded-lg hover:bg-gray-50">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                    </button>
+                    <button class="px-4 py-2 bg-white border border-neutral-200/30 rounded-lg hover:bg-gray-50">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-white border border-neutral-200/30 rounded-lg hover:bg-gray-50 flex items-center space-x-2">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>Center Map</span>
+                    </button>
+                    <button class="px-4 py-2 bg-white border border-neutral-200/30 rounded-lg hover:bg-gray-50 flex items-center space-x-2">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Requests List -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Active Requests</h3>
+                <div class="relative">
+                    <input type="text" placeholder="Search locations..." class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <svg class="w-5 h-5 text-gray-400 absolute right-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="space-y-4 max-h-[500px] overflow-y-auto">
+                <!-- Request Items -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-neutral-200/30 cursor-pointer hover:bg-gray-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold">Plastic Waste Collection</h4>
+                            <p class="text-sm text-gray-500">123 Main Street</p>
+                            <div class="flex items-center mt-2">
+                                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-xs text-gray-500 ml-1">2 hours ago</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-gray-50 rounded-lg border border-neutral-200/30 cursor-pointer hover:bg-gray-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold">Electronic Waste</h4>
+                            <p class="text-sm text-gray-500">Soul Society</p>
+                            <div class="flex items-center mt-2">
+                                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-xs text-gray-500 ml-1">5 hours ago</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 text-sm bg-blue-100 text-blue-800 rounded-full">In Progress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="collectionRequests" class="p-6">
+    <!-- Header -->
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Collection Requests</h2>
+        <p class="text-gray-600">Manage and track waste collection requests</p>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="bg-white rounded-lg border border-neutral-200/30 p-4 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="relative">
+                <input type="text" placeholder="Search requests..." class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <svg class="w-5 h-5 text-gray-400 absolute right-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <select class="px-4 py-2 border border-neutral-200/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <option value="">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="accepted">Accepted</option>
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+            <select class="px-4 py-2 border border-neutral-200/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <option value="">All Types</option>
+                <option value="plastic">Plastic</option>
+                <option value="electronic">Electronic</option>
+                <option value="organic">Organic</option>
+                <option value="metal">Metal</option>
+            </select>
+            <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                Apply Filters
+            </button>
+        </div>
+    </div>
+
+    <!-- Requests List -->
+    <div class="bg-white rounded-lg border border-neutral-200/30">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Request ID</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Image</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Location</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Type</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Status</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200/30">
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm text-gray-800">#REQ001</td>
+                        <td class="px-6 py-4">
+                            <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm">
+                                <div class="font-medium text-gray-800">123 Main Street</div>
+                                <div class="text-gray-500">New York, NY 10001</div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-sm bg-blue-100 text-blue-800 rounded-full">Plastic</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex space-x-2">
+                                <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm text-gray-800">#REQ002</td>
+                        <td class="px-6 py-4">
+                            <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm">
+                                <div class="font-medium text-gray-800">456 Oak Avenue</div>
+                                <div class="text-gray-500">Brooklyn, NY 11201</div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-sm bg-purple-100 text-purple-800 rounded-full">Electronic</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full">In Progress</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex space-x-2">
+                                <button class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-green-600 hover:bg-green-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-red-600 hover:bg-red-50 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-between px-6 py-4 border-t border-neutral-200/30">
+            <div class="text-sm text-gray-600">
+                Showing 1-2 of 24 results
+            </div>
+            <div class="flex space-x-2">
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">Previous</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg bg-green-600 text-white hover:bg-green-700">1</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">2</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">3</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">Next</button>
+            </div>
+        </div>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="ngoPortal" class="p-6" x-data="{ activeTab: 'available' }">
+    <!-- Header -->
+    <div class="mb-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">NGO Portal</h2>
+                <p class="text-gray-600">Manage collection requests and track your activities</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="text-right">
+                    <p class="font-semibold">Green Earth NGO</p>
+                    <p class="text-sm text-green-600">Online</p>
+                </div>
+                <img src="https://avatar.iran.liara.run/public" alt="NGO Profile" class="w-12 h-12 rounded-full border-2 border-green-500"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-blue-100 rounded-lg">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm text-gray-500">Available Requests</p>
+                    <p class="text-2xl font-bold">24</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-yellow-100 rounded-lg">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm text-gray-500">In Progress</p>
+                    <p class="text-2xl font-bold">8</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-green-100 rounded-lg">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm text-gray-500">Completed Today</p>
+                    <p class="text-2xl font-bold">12</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex items-center">
+                <div class="p-3 bg-purple-100 rounded-lg">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm text-gray-500">Total Impact (kg)</p>
+                    <p class="text-2xl font-bold">1,250</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="bg-white rounded-lg border border-neutral-200/30">
+        <div class="border-b border-neutral-200/30">
+            <nav class="flex space-x-4 px-6" aria-label="Tabs">
+                <button @click="activeTab = 'available'" :class="{'text-green-600 border-b-2 border-green-600': activeTab === 'available'}" class="px-3 py-4 text-sm font-medium">
+                    Available Requests
+                </button>
+                <button @click="activeTab = 'active'" :class="{'text-green-600 border-b-2 border-green-600': activeTab === 'active'}" class="px-3 py-4 text-sm font-medium">
+                    Active Collections
+                </button>
+                <button @click="activeTab = 'completed'" :class="{'text-green-600 border-b-2 border-green-600': activeTab === 'completed'}" class="px-3 py-4 text-sm font-medium">
+                    Completed
+                </button>
+            </nav>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="p-6">
+            <!-- Available Requests -->
+            <div x-show="activeTab === 'available'" class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                        <div>
+                            <h3 class="font-semibold">Plastic Waste Collection</h3>
+                            <p class="text-sm text-gray-500">123 Main Street, New York</p>
+                            <p class="text-sm text-gray-500">2.5 km away</p>
+                        </div>
+                    </div>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        Accept Request
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                        <div>
+                            <h3 class="font-semibold">Electronic Waste</h3>
+                            <p class="text-sm text-gray-500">456 Hueco Mondo , Tokyo</p>
+                            <p class="text-sm text-gray-500">3.8 km away</p>
+                        </div>
+                    </div>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        Accept Request
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Collections -->
+            <div x-show="activeTab === 'active'" class="space-y-4">
+                <div class="p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                            <div>
+                                <h3 class="font-semibold">Metal Waste Collection</h3>
+                                <p class="text-sm text-gray-500">789 Pine Road, Tokyo</p>
+                                <div class="flex items-center mt-2">
+                                    <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span class="text-sm text-gray-500 ml-1">Started 30 mins ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                            Mark Complete
+                        </button>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed -->
+            <div x-show="activeTab === 'completed'" class="space-y-4">
+                <div class="p-4 bg-gray-50 rounded-lg border border-neutral-200/30">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/100x100" alt="Waste" class="w-16 h-16 rounded-lg object-cover"/>
+                            <div>
+                                <h3 class="font-semibold">Organic Waste Collection</h3>
+                                <p class="text-sm text-gray-500">321 Elm Street, Kochi</p>
+                                <div class="flex items-center mt-2">
+                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    <span class="text-sm text-gray-500 ml-1">Completed yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="analytics" class="p-6">
+    <!-- Header -->
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Analytics Dashboard</h2>
+        <p class="text-gray-600">Track waste collection metrics and impact</p>
+    </div>
+
+    <!-- Time Range Selector -->
+    <div class="bg-white rounded-lg border border-neutral-200/30 p-4 mb-6">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-2">
+                <button class="px-4 py-2 bg-green-600 text-white rounded-lg">Week</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">Month</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">Quarter</button>
+                <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">Year</button>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="p-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <span class="text-gray-600">Jun 1 - Jun 7, 2024</span>
+                <button class="p-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-gray-500">Total Collections</h3>
+                <span class="text-green-600 text-sm">+12.5%</span>
+            </div>
+            <p class="text-3xl font-bold">1,284</p>
+            <p class="text-sm text-gray-500 mt-2">147 more than last week</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-gray-500">Waste Collected (kg)</h3>
+                <span class="text-green-600 text-sm">+8.2%</span>
+            </div>
+            <p class="text-3xl font-bold">3,547</p>
+            <p class="text-sm text-gray-500 mt-2">268 kg more than last week</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-gray-500">Active NGOs</h3>
+                <span class="text-yellow-600 text-sm">-2.4%</span>
+            </div>
+            <p class="text-3xl font-bold">24</p>
+            <p class="text-sm text-gray-500 mt-2">2 less than last week</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-gray-500">Response Rate</h3>
+                <span class="text-green-600 text-sm">+5.1%</span>
+            </div>
+            <p class="text-3xl font-bold">94%</p>
+            <p class="text-sm text-gray-500 mt-2">4% higher than target</p>
+        </div>
+    </div>
+
+    <!-- Charts Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Collection Trend -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <h3 class="text-lg font-semibold mb-4">Collection Trend</h3>
+            <div class="h-80 bg-gray-50 rounded-lg border border-neutral-200/30 flex items-center justify-center">
+                <p class="text-gray-500">Chart Placeholder</p>
+            </div>
+        </div>
+
+        <!-- Waste Type Distribution -->
+        <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+            <h3 class="text-lg font-semibold mb-4">Waste Type Distribution</h3>
+            <div class="h-80 bg-gray-50 rounded-lg border border-neutral-200/30 flex items-center justify-center">
+                <p class="text-gray-500">Chart Placeholder</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Header -->
+    <div class="mb-6 flex justify-between items-center">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-800">Notifications</h2>
+            <p class="text-gray-600">Stay updated with collection requests and activities</p>
+        </div>
+        <div class="flex space-x-2">
+            <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50 flex items-center space-x-2">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                <span>Mark all as read</span>
+            </button>
+            <button class="px-4 py-2 border border-neutral-200/30 rounded-lg hover:bg-gray-50 flex items-center space-x-2">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+                <span>Clear all</span>
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Load More -->
+    <div class="mt-6 text-center">
+        <button class="px-6 py-3 bg-white border border-neutral-200/30 rounded-lg hover:bg-gray-50 text-gray-600">
+            Load More Notifications
+        </button>
+    </div>
+</section>
+</htmlCode><htmlCode>
+<section id="userProfile" class="p-6" x-data="{ activeTab: 'profile' }">
+    <!-- Header with Cover Image -->
+    <div class="rounded-lg border border-neutral-200/30 bg-white overflow-hidden">
+        <div class="h-48 bg-gradient-to-r from-green-400 to-green-600"></div>
+        <div class="p-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-end -mt-20 space-y-4 sm:space-y-0 sm:space-x-6">
+                <img src="https://avatar.iran.liara.run/public" alt="Profile" class="w-32 h-32 rounded-full border-4 border-white"/>
+                <div class="text-center sm:text-left">
+                    <h2 class="text-2xl font-bold text-gray-800">Sosuke Aizen</h2>
+                    <p class="text-gray-600">Waste Management Enthusiast</p>
+                    <p class="text-sm text-gray-500">Member since June 2023</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="mt-6 border-b border-neutral-200/30">
+        <nav class="-mb-px flex space-x-8">
+            <button @click="activeTab = 'profile'" :class="{'border-green-500 text-green-600': activeTab === 'profile'}" class="py-4 px-1 border-b-2 font-medium text-sm">Profile Information</button>
+            <button @click="activeTab = 'activity'" :class="{'border-green-500 text-green-600': activeTab === 'activity'}" class="py-4 px-1 border-b-2 font-medium text-sm">Activity History</button>
+            <button @click="activeTab = 'impact'" :class="{'border-green-500 text-green-600': activeTab === 'impact'}" class="py-4 px-1 border-b-2 font-medium text-sm">Environmental Impact</button>
+        </nav>
+    </div>
+
+    <!-- Profile Information -->
+    <div x-show="activeTab === 'profile'" class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 space-y-6">
+            <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+                <h3 class="text-lg font-semibold mb-4">Personal Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" value="Sosuke Aizen" class="mt-1 block w-full px-3 py-2 border border-neutral-200/30 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" value="sos.aizen@gmail.com" class="mt-1 block w-full px-3 py-2 border border-neutral-200/30 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" value="+91 234 567 8900" class="mt-1 block w-full px-3 py-2 border border-neutral-200/30 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Location</label>
+                        <input type="text" value="Tokyo, Japan" class="mt-1 block w-full px-3 py-2 border border-neutral-200/30 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Save Changes</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+                <h3 class="text-lg font-semibold mb-4">Notification Preferences</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-medium">Collection Updates</h4>
+                            <p class="text-sm text-gray-500">Receive updates about your waste collection requests</p>
+                        </div>
+                        <button class="relative inline-flex items-center h-6 rounded-full w-11 bg-green-600">
+                            <span class="translate-x-6 inline-block w-4 h-4 transform bg-white rounded-full"></span>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-medium">NGO Notifications</h4>
+                            <p class="text-sm text-gray-500">Get notified about NGO activities in your area</p>
+                        </div>
+                        <button class="relative inline-flex items-center h-6 rounded-full w-11 bg-green-600">
+                            <span class="translate-x-6 inline-block w-4 h-4 transform bg-white rounded-full"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+                <h3 class="text-lg font-semibold mb-4">Account Stats</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-sm text-gray-500">Total Collections</p>
+                        <p class="text-2xl font-bold">47</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Waste Collected (kg)</p>
+                        <p class="text-2xl font-bold">235</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Impact Score</p>
+                        <p class="text-2xl font-bold text-green-600">8.5/10</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-neutral-200/30 p-6">
+                <h3 class="text-lg font-semibold mb-4">Achievements</h3>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                            </svg>
+                        </div>
+                        <p class="text-xs mt-2">First Collection</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <p class="text-xs mt-2">10+ Collections</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-purple-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <p class="text-xs mt-2">Top Contributor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+</htmlCode>
